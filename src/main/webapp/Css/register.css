@@ -255,10 +255,9 @@ h1.signup_title{
 .login-btn{
 	display: block;
 	float: right;
-	background: url(/images/login_btn.png) no-repeat;
+	background: url(../images/login_btn.png) no-repeat;
 	width: 157px;
 	height:41px;
-	border: solid 1px blue;
 }
 
 .login-btn:hover{
