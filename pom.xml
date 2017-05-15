@@ -11,21 +11,21 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.3.8</spring.version>
-	</properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<spring.version>4.3.8.RELEASE</spring.version>
+  	</properties>
 
-	<dependencies>
-		<!-- junit -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
+  <dependencies>
+        <!-- junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
 
-		<!-- spring -->
-		<!-- Spring 4.3.8 -->
+
+        <!-- Spring 4.3.8 -->
         <!-- Core Container 核心容器 -->
         <!-- 核心工具类，Spring其它模块大量使用Spring-core -->
         <dependency>
@@ -139,57 +139,85 @@
         </dependency>   
         <!-- End DataAccess/Integration 数据访问/集成-->                      
         <!-- End Spring 4.3.8 -->
-		
-		<!-- mysql -->
+
+		<!-- mybatis框架 -->
+		<dependency>
+             <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+             <version>3.2.7</version>
+        </dependency>
+        <dependency>
+          <groupId>org.mybatis</groupId>
+           <artifactId>mybatis-spring</artifactId>
+          <version>1.2.2</version>
+        </dependency>
+
+		<dependency>
+	  		<groupId>log4j</groupId>
+	  		<artifactId>log4j</artifactId>
+	  		<version>1.2.14</version>
+	  	</dependency>
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.37</version>
 		</dependency>
-		<!-- servlet -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
-			<!-- 只在编译时和测试时运行 -->
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.2</version>
-				<configuration>
-					<version>3.1</version>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
-			<!-- <plugin> <groupId>org.apache.tomcat.maven</groupId> <artifactId>tomcat7-maven-plugin</artifactId> 
-				<version>2.2</version> <executions> <execution> 在打包成功后使用tomcat:run来运行服务 <phase>install</phase> 
-				<goals> <goal>run</goal> </goals> </execution> </executions> </plugin> -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.4.2</version>
-				<configuration>
-					<skipTests>true</skipTests>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- 提供编程式和声明式的事务支持 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency> 
+    </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <version>3.1</version>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      <!-- <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.2</version>
+          <executions>
+            <execution>
+                在打包成功后使用tomcat:run来运行服务
+                <phase>install</phase>
+                <goals>
+                    <goal>run</goal>
+                </goals>
+            </execution>
+          </executions>
+      </plugin> -->
+      <plugin>  
+        <groupId>org.apache.maven.plugins</groupId>  
+        <artifactId>maven-surefire-plugin</artifactId>  
+        <version>2.4.2</version>  
+        <configuration>  
+          <skipTests>true</skipTests>  
+        </configuration>  
+      </plugin> 
+    </plugins>
+  </build>
 </project>

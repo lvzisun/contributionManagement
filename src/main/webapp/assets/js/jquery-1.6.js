@@ -8284,11 +8284,11 @@ jQuery.fx.prototype = {
 				raf = function() {
 					// When timerId gets set to null at any point, this stops
 					if ( timerId ) {
-						requestAnimationFrame(raf);
+						requestAnimationFrame( raf );
 						fx.tick();
 					}
 				};
-				requestAnimationFrame(raf);
+				requestAnimationFrame( raf );
 			} else {
 				timerId = setInterval( fx.tick, fx.interval );
 			}
