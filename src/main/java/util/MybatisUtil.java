@@ -7,13 +7,15 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.core.io.ClassPathResource;
 
 public class MybatisUtil {
 	private static SqlSessionFactory sf;
 	static{
 		InputStream is=null;
 		try {
-			is=Resources.getResourceAsStream("mybatis-config.xml");
+//			is=Resources.getResourceAsStream("mybatis-config.xml");
+			is=new ClassPathResource("mybatis-config.xml").getInputStream();
 			sf=new SqlSessionFactoryBuilder().build(is);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

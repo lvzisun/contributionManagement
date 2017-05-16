@@ -26,4 +26,5 @@
   	<update id="updatePassword">
   		update user set password=#{password} where id=#{id}
   	</update>
+  	<!-- #$有什么区别？？？ -->
   </mapper>

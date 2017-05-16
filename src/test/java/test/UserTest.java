@@ -1,4 +1,4 @@
-package userTest;
+package test;
 
 import org.apache.ibatis.session.SqlSession;
 
