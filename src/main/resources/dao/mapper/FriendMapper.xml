@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.FriendDao">
+
+	<select id="queryById" parameterType="int" resultType="Friend">
+		select *
+		from friend where id=#{id}
+	</select>
+
+	<select id="queryForPage" resultType="Friend">
+		select * form friend where userid=#{userid} and
+		<if test="realname!=null">realname=#{realname} and</if>
+		<if test="phone!=null">phone=#{phone}</if>
+		limit #{first},#{rows}
+	</select>
+
+	<update id="updateFriend" parameterType="Friend">
+		update friend set
+		address=#{address},age=#{age},
+		birthday=#{birthday},email=#{email},phone=#{phone},
+		realname=#{realname},sex=#{sex}
+		where id=#{id}
+	</update>
+	
+	<insert id="addFriend" parameterType="Friend">
+		insert into friend (id,realname,sex,birthday,age,phone,address,email,userid)
+		values(null,#{realname},#{sex},#{birthday},#{age},#{phone},
+		#{address},#{email},#{userid})
+	</insert>
+	
+	<delete id="delFriend" parameterType="int">
+		delete from friend where id=#{id}
+	</delete>
+</mapper>
+  

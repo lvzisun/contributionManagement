@@ -4,7 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Assert;
 import org.junit.Test;
 
-import dao.UserMapper;
+import dao.UserDao;
 import model.User;
 import util.MybatisUtil;
 
@@ -13,7 +13,7 @@ public class UserMapperTest {
 	@Test
 	public void test() {
 		SqlSession session = MybatisUtil.getSession();
-		UserMapper userDao = session.getMapper(UserMapper.class);
+		UserDao userDao = session.getMapper(UserDao.class);
 		User user=userDao.queryByUsernameAndPassword("admin", "222222");
 		session.commit();
 		session.close();
@@ -24,7 +24,7 @@ public class UserMapperTest {
 	@Test
 	public void queryByIdTest() {
 		SqlSession session = MybatisUtil.getSession();
-		UserMapper userDao = session.getMapper(UserMapper.class);
+		UserDao userDao = session.getMapper(UserDao.class);
 		User user=userDao.queryById(1);
 		session.commit();
 		session.close();

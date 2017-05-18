@@ -1,10 +1,12 @@
 package dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import model.User;
 
-public interface UserMapper {
+public interface UserDao {
 	/**
 	 * 跟据指定用户名和密码查询是否有该用户
 	 * @param username
@@ -43,4 +45,18 @@ public interface UserMapper {
 	 * @return int(受影响的行数)
 	 */
 	int updatePassword(@Param("id")Integer id,@Param("password")String password);
+
+	/**
+	 * 显示内部通讯录的某一页user信息
+	 * @param first 起始数据下标
+	 * @param rows 页面显示条数
+	 * @param realname 查询条件：名字
+	 * @param phone 查询条件：电话
+	 * @return List<User>
+	 */
+	List<User> queryForPage(@Param("first")Integer first,
+			@Param("rows")Integer rows,
+			@Param("realname")String realname,
+			@Param("phone")String phone);
+
 }
