@@ -8,7 +8,7 @@
 	<typeAliases>
 		<package name="model" />
 	</typeAliases>
-	<environments default="default">
+	<!-- <environments default="default">
 		<environment id="default">
 			<transactionManager type="JDBC"></transactionManager>
 			<dataSource type="POOLED">
@@ -18,7 +18,7 @@
 				<property name="password" value="${password}" />
 			</dataSource>
 		</environment>
-	</environments>
+	</environments> -->
 	<mappers>
 		<mapper resource="dao/mapper/UserMapper.xml"/>
 	</mappers>

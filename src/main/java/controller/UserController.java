@@ -31,9 +31,7 @@ public class UserController {
 		user.setUsername(username);
 		user.setPassword(password);
 		user.setEmail(email);
-		
 		Map<String, Object>map=new HashMap<>();
-		
 		try{
 			//异常在哪个层次处理
 			int id=userService.insertUser(user);
@@ -47,5 +45,6 @@ public class UserController {
 		}
 		return map;
 	}
+	
 
 }
