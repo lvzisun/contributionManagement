@@ -16,8 +16,6 @@
 			expression="org.springframework.stereotype.Controller" />
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Service" />
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Component" />
 	</context:component-scan>
 
 	<!-- 解析RequestMapping注解？？？自动注入请求信息头中的RequestParam信息-->
@@ -52,7 +50,7 @@
 	<!-- 定义JSP -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/" />
+		<property name="prefix" value="" />
 		<property name="suffix" value=".html" />
 	</bean>
 

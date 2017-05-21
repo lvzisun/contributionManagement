@@ -3,6 +3,9 @@ package controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,5 +49,19 @@ public class UserController {
 		return map;
 	}
 	
+	/**
+	 * 登录，返回一个jsp页面
+	 * @param username
+	 * @param password
+	 * @return jsp文件的文件名 
+	 */
+	@RequestMapping(value="login",method={RequestMethod.GET,RequestMethod.POST})
+	public String login(String username,String password,HttpServletRequest request){
+		User user=userService.login(username,password);
+		if(user==null){
+			return "login";
+		}
+		return "index";
+	}
 
 }

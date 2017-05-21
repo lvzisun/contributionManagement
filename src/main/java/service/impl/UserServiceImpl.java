@@ -19,4 +19,10 @@ public class UserServiceImpl implements UserService{
 		userDao.insertUser(user);
 		return user.getId();
 	}
+
+	@Override
+	public User login(String username, String password) {
+		User user=userDao.queryByUsernameAndPassword(username, password);
+		return user;
+	}
 }
