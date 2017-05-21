@@ -23,7 +23,7 @@ public interface UserDao {
 	/**
 	 * 增加一名用户，id==null
 	 * @param user
-	 * @return int(受影响的行数)
+	 * @return 返回受影响的行数（自动生成的id会放到user对象的id属性里）
 	 */
 	int insertUser(User user);
 	/**

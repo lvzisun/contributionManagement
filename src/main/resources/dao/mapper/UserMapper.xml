@@ -9,7 +9,7 @@
   	<select id="queryById" parameterType="int" resultType="User">
   		select * from user where id=#{id}
   	</select>
-  	<insert id="insertUser" parameterType="User">
+  	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
   		insert into user values(null,#{username},#{password}
   		,#{realname},#{sex},#{birthday},#{age},#{phone}
   		,#{address},#{email},#{status},#{roleid},#{credit});
@@ -26,5 +26,6 @@
   	<update id="updatePassword">
   		update user set password=#{password} where id=#{id}
   	</update>
+  	<select id="queryForPage"></select>
   	<!-- #$有什么区别？？？ -->
   </mapper>

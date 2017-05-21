@@ -7,8 +7,17 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.aspectj.lang.annotation.Aspect;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
+@Controller
+@Service
+@Repository
+@Component
 public class MybatisUtil {
 	private static SqlSessionFactory sf;
 	static{
